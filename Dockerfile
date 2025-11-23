@@ -2,9 +2,15 @@
 FROM node:20-alpine AS build
 
 WORKDIR /app
-COPY package*.json ./
-COPY yarn.lock ./
-RUN yarn install --frozen-lockfile
+
+# Copy package files and yarn config
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn ./.yarn
+
+# Install dependencies
+RUN corepack enable && yarn install --immutable
+
+# Copy source and build
 COPY . .
 RUN yarn build
 
