@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  guider-arch:
+    image: nginx:alpine
+    container_name: guider-arch
+    ports:
+      - "${PORT:-8090}:80"  # Default 8090, override with environment variable
+    volumes:
+      - ./dist:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=guider-arch"

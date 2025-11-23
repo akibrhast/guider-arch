@@ -1,0 +1,4 @@
+# Python dependencies for GUIDER diagram capture tool
+playwright
+Pillow
+opencv-python
