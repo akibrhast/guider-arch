@@ -243,7 +243,7 @@ const initialEdges = [
 // Helper function to load saved layout
 const loadSavedLayout = async (): Promise<Record<string, { x: number; y: number }> | null> => {
   try {
-    const response = await fetch('/src/layouts/systemOverview.json');
+    const response = await fetch('/layouts/systemOverview.json');
     if (!response.ok) return null;
     const savedLayout = await response.json();
 

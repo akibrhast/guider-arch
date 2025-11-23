@@ -311,7 +311,7 @@ const initialEdges = [
 // Helper function to load saved layout
 const loadSavedLayout = async (): Promise<Record<string, { x: number; y: number }> | null> => {
   try {
-    const response = await fetch('/src/layouts/kubernetesInfra.json');
+    const response = await fetch('/layouts/kubernetesInfra.json');
     if (!response.ok) return null;
     const savedLayout = await response.json();
 
