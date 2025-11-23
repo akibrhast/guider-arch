@@ -3,12 +3,11 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-# Copy package files and yarn config
+# Copy package files
 COPY package.json yarn.lock .yarnrc.yml ./
-COPY .yarn ./.yarn
 
-# Install dependencies
-RUN corepack enable && yarn install --immutable
+# Install dependencies (corepack enables modern yarn)
+RUN corepack enable && yarn install
 
 # Copy source and build
 COPY . .
