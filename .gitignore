@@ -10,8 +10,8 @@ lerna-debug.log*
 # Dependencies
 node_modules
 
-# Build output (REMOVED dist - needed for deployment)
-# dist
+# Build output
+dist
 dist-ssr
 *.local
 
